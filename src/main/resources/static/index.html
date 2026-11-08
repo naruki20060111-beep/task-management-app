@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タスク管理アプリ</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="container">
+        <h1>タスク管理アプリ</h1>
+
+        <section id="notificationArea">
+            <h2>通知</h2>
+
+            <label for="notificationDays">通知する日数(締切日の何日前か)</label>
+            <input
+               type="text"
+               id="notificationDays"
+               inputmode="numeric"
+               placeholder="日数を入力"
+               value="7"
+               >
+
+               <button id="saveNotificationButton" type="button">
+                設定を保持
+               </button>
+
+            <p id="notificationMessage">締切日の7日前に、未完了のタスクを通知します。</p>
+        </section>
+
+        <section id="taskSection">
+            <div class="task-header">
+                <h2>タスク一覧</h2>
+                <button id="addButton" type="button">タスク登録</button>
+            </div>
+            
+            <div class="sort-area">
+                <label for="soreSelect">並べ替え:</label>
+                <select id="sortSelect">
+                    <option value="deadline">締切日が近い順</option>
+                    <option value="incomplete">未完了を優先</option>
+                    <option value="created">登録した順</option>
+                </select>
+            </div>
+
+            <div id="taskList"></div>
+        </section>
+
+        <section id="taskForm" hidden>
+            <h2>タスク登録・編集</h2>
+
+            <label for="taskName">タスク名</label>
+            <input
+                type="text"
+                id="taskName"
+                placeholder="タスク名を入力"
+            >
+
+            <label for="deadline">締切日</label>
+            <input type="date" id="deadline">
+
+            <button id="registerButton" type="button">登録</button>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
