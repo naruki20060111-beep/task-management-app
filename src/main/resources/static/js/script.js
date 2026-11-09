@@ -378,6 +378,13 @@ updateNotificationMessage();
 loadTasks();
 
 
+let lastCheckedDate = getTodayString();
+
 setInterval(function () {
-    loadTasks();
-}, 60 * 1000);
+    const currentDate = getTodayString();
+
+    if (currentDate !== lastCheckedDate){
+        lastCheckedDate = currentDate;
+        loadTasks();
+    }
+}, 1000);
